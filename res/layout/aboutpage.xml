@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+        android:id="@+id/mainlayout" >
+
+    <RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" >
+
+        <TextView
+            android:id="@+id/version"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:text="@string/version"
+            android:textSize="25sp"
+        android:shadowColor="#000"  
+        android:shadowRadius="5"  
+        android:shadowDx="1"  
+        android:shadowDy="1"  
+        android:textColor="#FFF" />
+
+        <Button
+            android:id="@+id/filtermusiclink"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/version"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/filtermusic_logo"
+            android:onClick="filtermusiclink" />
+
+        <Button
+            android:id="@+id/websynergylink"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/filtermusiclink"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/websynergy"
+            android:onClick="websynergylink" />
+
+        <Button
+            android:id="@+id/rslink"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/websynergylink"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/rs"
+            android:onClick="rslink" />
+
+        <Button
+            android:id="@+id/bugs"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/lisense"
+            android:layout_alignRight="@+id/lisense"
+            android:layout_below="@+id/rslink"
+            android:onClick="reportBug"
+            android:text="Report Bugs Here" />
+
+        <Button
+            android:id="@+id/lisense"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/bugs"
+            android:layout_centerHorizontal="true"
+            android:onClick="lisense"
+            android:text="Lisence &amp; Copyright" />
+
+        <Button
+            android:id="@+id/sourcecode"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/lisense"
+            android:layout_alignRight="@+id/lisense"
+            android:layout_below="@+id/lisense"
+            android:onClick="sourcecode"
+            android:text="Source Code" />
+    </RelativeLayout>
+
+</ScrollView>
