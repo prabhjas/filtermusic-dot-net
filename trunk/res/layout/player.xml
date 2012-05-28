@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/mainlayout"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+
+    <ImageView
+        android:id="@+id/radioImage"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:src="@drawable/nullpixel" />
+
+    <RelativeLayout
+        android:id="@+id/stationinfotable"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/radioImage"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/black"
+        android:gravity="bottom|center_horizontal" >
+
+        <Button
+            android:id="@+id/next"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:background="@drawable/next1"
+            android:height="30sp"
+            android:onClick="next"
+            android:width="30sp" />
+
+        <Button
+            android:id="@+id/stopPlaying"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_toLeftOf="@+id/next"
+            android:background="@drawable/stop1"
+            android:height="50sp"
+            android:onClick="stop"
+            android:width="50sp" />
+
+        <Button
+            android:id="@+id/pause"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_toLeftOf="@+id/stopPlaying"
+            android:background="@drawable/pause1"
+            android:height="50sp"
+            android:onClick="playPause"
+            android:width="50sp" />
+
+        <Button
+            android:id="@+id/prev"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_toLeftOf="@+id/pause"
+            android:background="@drawable/prev1"
+            android:height="50sp"
+            android:onClick="prev"
+            android:width="50sp" />
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/stationName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:shadowColor="#000"
+        android:shadowDx="1"
+        android:shadowDy="1"
+        android:shadowRadius="5"
+        android:text="not playing"
+        android:textColor="#FFF"
+        android:textSize="50dp"
+        android:textStyle="bold" />
+
+</RelativeLayout>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="filtermusic.net"
+    android:versionCode="2"
+    android:versionName="2.0" >
+
+    <uses-sdk android:minSdkVersion="8" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+
+    <application
+        android:icon="@drawable/icon"
+        android:label="@string/app_name" >
+        <activity
+            android:name="filtermusic.Views.loadingViews.InitialActivity"
+            android:launchMode="singleInstance" android:theme="@style/Theme.Transparent">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="filtermusic.Views.AboutActivity"
+            android:launchMode="singleInstance" >
+        </activity>
+        <activity
+            android:name="filtermusic.Views.ExitActivity"
+            android:launchMode="singleInstance" >
+        </activity>
+        <activity
+            android:name="filtermusic.Views.GenreListActivity"
+            android:launchMode="singleInstance" >
+        </activity>
+        <activity
+            android:name="filtermusic.Views.LisenceActivity"
+            android:launchMode="singleInstance" >
+        </activity>
+        <activity
+            android:name="filtermusic.Views.PlayerActivity"
+            android:launchMode="singleInstance" >
+        </activity>
+        <activity
+            android:name="filtermusic.Views.loadingViews.PlayerLoadingActivity"
+            android:launchMode="singleInstance" android:theme="@style/Theme.Transparent">
+        </activity>
+        <activity
+            android:name="filtermusic.Views.RadioListActivity"
+            android:launchMode="singleInstance" >
+        </activity>
+
+        <service android:name="mediastreamer.PlayerService" >
+        </service>
+    </application>
+
+</manifest>
