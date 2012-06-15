@@ -4,7 +4,7 @@ import java.util.Random;
 
 import mediastreamer.PlayerService;
 import mediastreamer.PlayerService.LocalBinder;
-import filtermusic.net.R;
+import filter.music.net.R;
 import filtermusic.Controllers.PlayerController;
 import filtermusic.Views.loadingViews.PlayerLoadingActivity;
 import android.app.Activity;

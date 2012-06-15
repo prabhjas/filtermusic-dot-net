@@ -7,6 +7,7 @@ import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
@@ -15,6 +16,7 @@ import org.xml.sax.SAXException;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
+import android.util.Log;
 
 /*
  * Author Rowan Schischka
@@ -79,9 +81,10 @@ public class FileDownloader {
 		if (url == null || directory == null)
 			return null;
 		Document doc = null;
-
 		try {
+			Log.i("FILEDOWNLOADER", "start dl");
 			File file = FileDownloader.getHTTP(directory, url);
+			Log.i("FILEDOWNLOADER", "finished dl");
 			if (file == null) {
 				return null;
 			}

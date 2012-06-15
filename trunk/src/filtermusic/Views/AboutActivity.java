@@ -1,6 +1,6 @@
 package filtermusic.Views;
 
-import filtermusic.net.R;
+import filter.music.net.R;
 import android.os.Bundle;
 import android.view.View;
 

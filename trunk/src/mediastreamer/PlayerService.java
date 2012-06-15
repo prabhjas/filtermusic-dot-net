@@ -1,6 +1,10 @@
 package mediastreamer;
 
 import java.io.IOException;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
+
 import filtermusic.Controllers.PlayerController;
 import android.app.Service;
 import android.content.Context;
@@ -21,7 +25,7 @@ public class PlayerService extends Service implements
 	private static MediaPlayer player = null;// media player
 	private final IBinder mBinder = new LocalBinder();// for binding player to
 	AudioManager audioManager; // views
-	//private String LOG_TAG = this.getClass().toString();
+	// private String LOG_TAG = this.getClass().toString();
 	public static boolean preparing = false;// used to prevent calls to player
 											// while its busy
 
@@ -45,6 +49,9 @@ public class PlayerService extends Service implements
 	// plays streaming music from given url
 	public void play(String url) {
 		// Log.i("PLAYERSERVICE", url);
+		/*if (!ping(url)) {
+			return;
+		}*/
 		if (preparing == false) {
 			Log.i("PLAYERSERVICE", "preparing == false");
 			try {
@@ -67,6 +74,27 @@ public class PlayerService extends Service implements
 				e.printStackTrace();
 			}
 		}
+	}
+
+	protected boolean ping(String urlString) {
+		try {
+			URL url = new URL(urlString);
+			HttpURLConnection urlc = (HttpURLConnection) url.openConnection();
+			urlc.setRequestProperty("User-Agent", "Android Application:");
+			urlc.setRequestProperty("Connection", "close");
+			urlc.setConnectTimeout(1000 * 30); // mTimeout is in seconds
+			urlc.connect();
+			if (urlc.getResponseCode() == 200) {
+				return true;
+			}
+		} catch (MalformedURLException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return false;
 	}
 
 	@Override

@@ -2,10 +2,10 @@ package filtermusic.Model;
 
 import java.util.ArrayList;
 import java.util.List;
+
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
-
 import android.text.Html;
 import android.util.Log;
 import filtermusic.Controllers.FileDownloader;
@@ -49,33 +49,18 @@ public class MenuData {
 
 	public static Document doc = null;
 	private static int nextId = 100;
-	private static boolean initStarted = false;
-
-	public static void setInitStarted(boolean initialised) {
-		MenuData.initStarted = initialised;
-	}
-
-	public static boolean isInitStarted() {
-		return initStarted;
-	}
-
-	public static void resetInitialised() {
-		initStarted = false;
-		initComplete = false;
-	}
 
 	// sets up menu data from xml file from filtermusic, returns false is theres
 	// a download error
 
-	public static boolean init(String directory) {
-		initStarted = true;
-		// retreive xml from filtermusic if dont already have it
+	public static boolean init(String cacheDirectory) {
 		if (doc == null) {
 			doc = FileDownloader.getDocument(
-					"http://www.filtermusic.net/xml/list.2.0.xml", directory);
-		}
-		if (doc == null) {
-			return false;
+					"http://www.filtermusic.net/xml/list.2.0.xml",
+					cacheDirectory);
+			if (doc == null) {
+				return false;
+			}
 		}
 		if (genreNamesList == null) {
 			NodeList genres = doc.getElementsByTagName("g");
@@ -89,12 +74,6 @@ public class MenuData {
 			String imageURL;
 			String reducedImageURL = doc.getElementsByTagName("r").item(0)
 					.getTextContent();
-			/*
-			 * <r> www.filtermusic.net/sites/default/files/imagecache/
-			 * android_350x196_greyscale/ </r> <g id="Downtempo / Ambient"> <t
-			 * id="SomaFM Space station"> <u>205.188.215.227:8014</u>
-			 * <i>somafm-space-station.jpg</i>
-			 */
 			genreNamesList = new String[genres.getLength()];
 			for (int i = 0; i < genres.getLength(); i++) {
 				genre = Html.fromHtml(
@@ -122,26 +101,6 @@ public class MenuData {
 					ri.add(title, url, "", imageURL);
 					title = genre = url = imageURL = null;
 				}
-				/*
-				 * current = stations.item(a); if
-				 * (current.getNodeName().equals("musicgenre")) { genre =
-				 * Html.fromHtml(current.getTextContent()) .toString();//
-				 * debug(genre); } else if
-				 * (current.getNodeName().equals("title")) { title =
-				 * Html.fromHtml(current.getTextContent()) .toString();//
-				 * debug(title); } else if
-				 * (current.getNodeName().equals("serverURL")) { url =
-				 * Html.fromHtml(current.getTextContent()) .toString(); } else
-				 * if (current.getNodeName().equals("imageURL")) { imageURL =
-				 * Html.fromHtml(current.getTextContent()) .toString(); } } //
-				 * got all radio station info now add to genre list if
-				 * (!genreNamesList_.contains(genre)) {
-				 * genreNamesList_.add(genre); radioItemList.add(new
-				 * RadioItem(genre)); } int index =
-				 * genreNamesList_.indexOf(genre);
-				 * radioItemList.get(index).add(title, url, "", imageURL); title
-				 * = genre = url = imageURL = null;
-				 */
 			}
 		}
 		initComplete = true;

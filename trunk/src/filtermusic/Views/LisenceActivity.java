@@ -4,7 +4,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import filtermusic.net.R;
+import filter.music.net.R;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;

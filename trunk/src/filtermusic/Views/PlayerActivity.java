@@ -12,7 +12,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import filtermusic.net.R;
+import filter.music.net.R;
 import filtermusic.Controllers.FileDownloader;
 import filtermusic.Controllers.PlayerController;
 
