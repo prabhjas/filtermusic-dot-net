@@ -28,7 +28,7 @@ public abstract class LoadingActivity extends Activity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		// show loading
-		setContentView(filtermusic.net.R.layout.loading);
+		setContentView(filter.music.net.R.layout.loading);
 		if (!PlayerController.isLoading) {
 			PlayerController.isLoading = true;
 			run();
